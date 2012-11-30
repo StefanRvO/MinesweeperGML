@@ -147,10 +147,8 @@ opponentRestarts=0;
 {
 if(socket_has_error(serverSocket)) {
     show_message("The connection to the server was lost:" + socket_error(serverSocket));
-    game_end();
+    room_goto(Multiplayer_menu);
 }
-
-//this handles messages from the server. First we recive a header, and then we read from the socket according to the header
 while(tcp_receive(serverSocket, expectedBytes)) {
     if(nextByteIsHeader) {
         expectedBytes = read_ubyte(serverSocket);
@@ -187,13 +185,10 @@ while(tcp_receive(serverSocket, expectedBytes)) {
 
         }
         }
-        //client should have the same size of board as server
 global.boardy=opponentboardy;
 global.boardx=opponentboardx;
 bombs=opponentBombs;
 boardset=1;
-
-//here we send data to the server
 write_ubyte(serverSocket,5);
 write_ubyte(serverSocket,TOTALBOMBS);
 write_int(serverSocket,bombs);

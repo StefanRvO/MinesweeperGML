@@ -31,8 +31,8 @@ acc=tcp_listen(12345);
 if(socket_has_error(acc))
 {
 show_message("Can't create server (socketerror)");
-//end game
-game_end();
+//goto multiplayer menu
+room_goto(Multiplayer_menu);
 }
 opponentSocket=-1;
 frame=0;

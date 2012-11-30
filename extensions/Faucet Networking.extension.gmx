@@ -25,7 +25,7 @@
           <name>append_file_to_buffer</name>
           <externalName>append_file_to_buffer</externalName>
           <kind>12</kind>
-          <id>1</id>
+          <id>205</id>
           <help>append_file_to_buffer(dest, filename)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -38,7 +38,7 @@
           <name>bit_get</name>
           <externalName>bit_get</externalName>
           <kind>12</kind>
-          <id>3</id>
+          <id>207</id>
           <help>bit_get(value,bitnum)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -51,7 +51,7 @@
           <name>bit_set</name>
           <externalName>bit_set</externalName>
           <kind>12</kind>
-          <id>5</id>
+          <id>209</id>
           <help>bit_set(value,bitnum,bitval)</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
@@ -65,7 +65,7 @@
           <name>buffer_bytes_left</name>
           <externalName>buffer_bytes_left</externalName>
           <kind>12</kind>
-          <id>7</id>
+          <id>211</id>
           <help>buffer_bytes_left(source)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -77,7 +77,7 @@
           <name>buffer_clear</name>
           <externalName>buffer_clear</externalName>
           <kind>12</kind>
-          <id>9</id>
+          <id>213</id>
           <help>buffer_clear(buffer)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -89,7 +89,7 @@
           <name>buffer_create</name>
           <externalName>buffer_create</externalName>
           <kind>12</kind>
-          <id>11</id>
+          <id>215</id>
           <help>buffer_create()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -99,7 +99,7 @@
           <name>buffer_destroy</name>
           <externalName>buffer_destroy</externalName>
           <kind>12</kind>
-          <id>13</id>
+          <id>217</id>
           <help>buffer_destroy(buffer)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -111,7 +111,7 @@
           <name>buffer_set_readpos</name>
           <externalName>buffer_set_readpos</externalName>
           <kind>12</kind>
-          <id>15</id>
+          <id>219</id>
           <help>buffer_set_readpos(source, pos)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -124,7 +124,7 @@
           <name>buffer_size</name>
           <externalName>buffer_size</externalName>
           <kind>12</kind>
-          <id>17</id>
+          <id>221</id>
           <help>buffer_size(buffer)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -136,7 +136,7 @@
           <name>build_ubyte</name>
           <externalName>build_ubyte</externalName>
           <kind>12</kind>
-          <id>19</id>
+          <id>223</id>
           <help>build_ubyte(bit7,bit6,bit5,bit4,bit3,bit2,bit1,bit0)</help>
           <returnType>2</returnType>
           <argCount>8</argCount>
@@ -155,7 +155,7 @@
           <name>debug_handles</name>
           <externalName>debug_handles</externalName>
           <kind>12</kind>
-          <id>21</id>
+          <id>225</id>
           <help>debug_handles()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -165,7 +165,7 @@
           <name>dllShutdown</name>
           <externalName>dllShutdown</externalName>
           <kind>12</kind>
-          <id>23</id>
+          <id>227</id>
           <help></help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -175,7 +175,7 @@
           <name>dllStartup</name>
           <externalName>dllStartup</externalName>
           <kind>12</kind>
-          <id>25</id>
+          <id>229</id>
           <help></help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -185,7 +185,7 @@
           <name>ipv4_lookup_create</name>
           <externalName>ipv4_lookup_create</externalName>
           <kind>12</kind>
-          <id>27</id>
+          <id>231</id>
           <help>ipv4_lookup_create(hostname)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -197,7 +197,7 @@
           <name>ipv6_lookup_create</name>
           <externalName>ipv6_lookup_create</externalName>
           <kind>12</kind>
-          <id>29</id>
+          <id>233</id>
           <help>ipv6_lookup_create(hostname)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -209,7 +209,7 @@
           <name>ip_is_v4</name>
           <externalName>ip_is_v4</externalName>
           <kind>12</kind>
-          <id>31</id>
+          <id>235</id>
           <help>ip_is_v4(string)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -221,7 +221,7 @@
           <name>ip_is_v6</name>
           <externalName>ip_is_v6</externalName>
           <kind>12</kind>
-          <id>33</id>
+          <id>237</id>
           <help>ip_is_v6(string)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -233,7 +233,7 @@
           <name>ip_lookup_create</name>
           <externalName>ip_lookup_create</externalName>
           <kind>12</kind>
-          <id>35</id>
+          <id>239</id>
           <help>ip_lookup_create(hostname)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -245,7 +245,7 @@
           <name>ip_lookup_destroy</name>
           <externalName>ip_lookup_destroy</externalName>
           <kind>12</kind>
-          <id>37</id>
+          <id>241</id>
           <help>ip_lookup_destroy(lookup)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -257,7 +257,7 @@
           <name>ip_lookup_has_next</name>
           <externalName>ip_lookup_has_next</externalName>
           <kind>12</kind>
-          <id>39</id>
+          <id>243</id>
           <help>ip_lookup_has_next(lookup)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -269,7 +269,7 @@
           <name>ip_lookup_next_result</name>
           <externalName>ip_lookup_next_result</externalName>
           <kind>12</kind>
-          <id>41</id>
+          <id>245</id>
           <help>ip_lookup_next_result(lookup)</help>
           <returnType>1</returnType>
           <argCount>1</argCount>
@@ -281,7 +281,7 @@
           <name>ip_lookup_ready</name>
           <externalName>ip_lookup_ready</externalName>
           <kind>12</kind>
-          <id>43</id>
+          <id>247</id>
           <help>ip_lookup_ready(lookup)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -293,7 +293,7 @@
           <name>mac_addrs</name>
           <externalName>mac_addrs</externalName>
           <kind>12</kind>
-          <id>45</id>
+          <id>249</id>
           <help>mac_addrs()</help>
           <returnType>1</returnType>
           <argCount>0</argCount>
@@ -303,7 +303,7 @@
           <name>read_byte</name>
           <externalName>read_byte</externalName>
           <kind>12</kind>
-          <id>47</id>
+          <id>251</id>
           <help>read_byte(source)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -315,7 +315,7 @@
           <name>read_double</name>
           <externalName>read_double</externalName>
           <kind>12</kind>
-          <id>49</id>
+          <id>253</id>
           <help>read_double(source)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -327,7 +327,7 @@
           <name>read_float</name>
           <externalName>read_float</externalName>
           <kind>12</kind>
-          <id>51</id>
+          <id>255</id>
           <help>read_float(source)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -339,7 +339,7 @@
           <name>read_int</name>
           <externalName>read_int</externalName>
           <kind>12</kind>
-          <id>53</id>
+          <id>257</id>
           <help>read_int(source)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -351,7 +351,7 @@
           <name>read_short</name>
           <externalName>read_short</externalName>
           <kind>12</kind>
-          <id>55</id>
+          <id>259</id>
           <help>read_short(source)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -363,7 +363,7 @@
           <name>read_string</name>
           <externalName>read_string</externalName>
           <kind>12</kind>
-          <id>57</id>
+          <id>261</id>
           <help>read_string(source, length)</help>
           <returnType>1</returnType>
           <argCount>2</argCount>
@@ -376,7 +376,7 @@
           <name>read_ubyte</name>
           <externalName>read_ubyte</externalName>
           <kind>12</kind>
-          <id>59</id>
+          <id>263</id>
           <help>read_ubyte(source)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -388,7 +388,7 @@
           <name>read_uint</name>
           <externalName>read_uint</externalName>
           <kind>12</kind>
-          <id>61</id>
+          <id>265</id>
           <help>read_uint(source)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -400,7 +400,7 @@
           <name>read_ushort</name>
           <externalName>read_ushort</externalName>
           <kind>12</kind>
-          <id>63</id>
+          <id>267</id>
           <help>read_ushort(source)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -412,7 +412,7 @@
           <name>set_little_endian</name>
           <externalName>set_little_endian</externalName>
           <kind>12</kind>
-          <id>65</id>
+          <id>269</id>
           <help>set_little_endian(buffer|socket, bool)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -425,7 +425,7 @@
           <name>set_little_endian_global</name>
           <externalName>set_little_endian_global</externalName>
           <kind>12</kind>
-          <id>67</id>
+          <id>271</id>
           <help>set_little_endian_global(bool)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -437,7 +437,7 @@
           <name>socket_accept</name>
           <externalName>socket_accept</externalName>
           <kind>12</kind>
-          <id>69</id>
+          <id>273</id>
           <help>socket_accept(acceptor)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -449,7 +449,7 @@
           <name>socket_connecting</name>
           <externalName>socket_connecting</externalName>
           <kind>12</kind>
-          <id>71</id>
+          <id>275</id>
           <help>socket_connecting(socket)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -461,7 +461,7 @@
           <name>socket_destroy</name>
           <externalName>socket_destroy</externalName>
           <kind>12</kind>
-          <id>73</id>
+          <id>277</id>
           <help>socket_destroy(socket)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -473,7 +473,7 @@
           <name>socket_destroy_abortive</name>
           <externalName>socket_destroy_abortive</externalName>
           <kind>12</kind>
-          <id>75</id>
+          <id>279</id>
           <help>socket_destroy_abortive(socket)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -485,7 +485,7 @@
           <name>socket_error</name>
           <externalName>socket_error</externalName>
           <kind>12</kind>
-          <id>77</id>
+          <id>281</id>
           <help>socket_error(socket)</help>
           <returnType>1</returnType>
           <argCount>1</argCount>
@@ -497,7 +497,7 @@
           <name>socket_handle_io</name>
           <externalName>socket_handle_io</externalName>
           <kind>12</kind>
-          <id>79</id>
+          <id>283</id>
           <help>socket_handle_io()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -507,7 +507,7 @@
           <name>socket_has_error</name>
           <externalName>socket_has_error</externalName>
           <kind>12</kind>
-          <id>81</id>
+          <id>285</id>
           <help>socket_has_error(socket)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -519,7 +519,7 @@
           <name>socket_local_port</name>
           <externalName>socket_local_port</externalName>
           <kind>12</kind>
-          <id>83</id>
+          <id>287</id>
           <help>socket_local_port(socket)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -531,7 +531,7 @@
           <name>socket_receivebuffer_size</name>
           <externalName>socket_receivebuffer_size</externalName>
           <kind>12</kind>
-          <id>85</id>
+          <id>289</id>
           <help>socket_receivebuffer_size(socket)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -543,7 +543,7 @@
           <name>socket_remote_ip</name>
           <externalName>socket_remote_ip</externalName>
           <kind>12</kind>
-          <id>87</id>
+          <id>291</id>
           <help>socket_remote_ip(socket)</help>
           <returnType>1</returnType>
           <argCount>1</argCount>
@@ -555,7 +555,7 @@
           <name>socket_remote_port</name>
           <externalName>socket_remote_port</externalName>
           <kind>12</kind>
-          <id>89</id>
+          <id>293</id>
           <help>socket_remote_port(socket)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -567,7 +567,7 @@
           <name>socket_send</name>
           <externalName>socket_send</externalName>
           <kind>12</kind>
-          <id>91</id>
+          <id>295</id>
           <help>socket_send(tcpSocket)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -579,7 +579,7 @@
           <name>socket_sendbuffer_limit</name>
           <externalName>socket_sendbuffer_limit</externalName>
           <kind>12</kind>
-          <id>93</id>
+          <id>297</id>
           <help>socket_sendbuffer_limit(socket, limit)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -592,7 +592,7 @@
           <name>socket_sendbuffer_size</name>
           <externalName>socket_sendbuffer_size</externalName>
           <kind>12</kind>
-          <id>95</id>
+          <id>299</id>
           <help>socket_sendbuffer_size(socket)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -604,7 +604,7 @@
           <name>tcp_connect</name>
           <externalName>tcp_connect</externalName>
           <kind>12</kind>
-          <id>97</id>
+          <id>301</id>
           <help>tcp_connect(host, port)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -617,7 +617,7 @@
           <name>tcp_eof</name>
           <externalName>tcp_eof</externalName>
           <kind>12</kind>
-          <id>99</id>
+          <id>303</id>
           <help>tcp_eof(tcpSocket)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -629,7 +629,7 @@
           <name>tcp_listen</name>
           <externalName>tcp_listen</externalName>
           <kind>12</kind>
-          <id>101</id>
+          <id>305</id>
           <help>tcp_listen(port)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -641,7 +641,7 @@
           <name>tcp_receive</name>
           <externalName>tcp_receive</externalName>
           <kind>12</kind>
-          <id>103</id>
+          <id>307</id>
           <help>tcp_receive(tcpSocket, numBytes)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -654,7 +654,7 @@
           <name>tcp_receive_available</name>
           <externalName>tcp_receive_available</externalName>
           <kind>12</kind>
-          <id>105</id>
+          <id>309</id>
           <help>tcp_receive_available(tcpSocket)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -666,7 +666,7 @@
           <name>udp_bind</name>
           <externalName>udp_bind</externalName>
           <kind>12</kind>
-          <id>107</id>
+          <id>311</id>
           <help>udp_bind(port)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -678,7 +678,7 @@
           <name>udp_receive</name>
           <externalName>udp_receive</externalName>
           <kind>12</kind>
-          <id>109</id>
+          <id>313</id>
           <help>udp_receive(udpSocket)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -690,7 +690,7 @@
           <name>udp_send</name>
           <externalName>udp_send</externalName>
           <kind>12</kind>
-          <id>111</id>
+          <id>315</id>
           <help>udp_send(udpSocket|buffer, host, port)</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
@@ -704,7 +704,7 @@
           <name>write_buffer</name>
           <externalName>write_buffer</externalName>
           <kind>12</kind>
-          <id>113</id>
+          <id>317</id>
           <help>write_buffer(dest, source)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -717,7 +717,7 @@
           <name>write_buffer_part</name>
           <externalName>write_buffer_part</externalName>
           <kind>12</kind>
-          <id>115</id>
+          <id>319</id>
           <help>write_buffer_part(dest, source, bytes)</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
@@ -731,7 +731,7 @@
           <name>write_buffer_to_file</name>
           <externalName>write_buffer_to_file</externalName>
           <kind>12</kind>
-          <id>117</id>
+          <id>321</id>
           <help>write_buffer_to_file(source, filename)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -744,7 +744,7 @@
           <name>write_byte</name>
           <externalName>write_byte</externalName>
           <kind>12</kind>
-          <id>119</id>
+          <id>323</id>
           <help>write_byte(dest, value)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -757,7 +757,7 @@
           <name>write_double</name>
           <externalName>write_double</externalName>
           <kind>12</kind>
-          <id>121</id>
+          <id>325</id>
           <help>write_double(dest, value)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -770,7 +770,7 @@
           <name>write_float</name>
           <externalName>write_float</externalName>
           <kind>12</kind>
-          <id>123</id>
+          <id>327</id>
           <help>write_float(dest, value)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -783,7 +783,7 @@
           <name>write_int</name>
           <externalName>write_int</externalName>
           <kind>12</kind>
-          <id>125</id>
+          <id>329</id>
           <help>write_int(dest, value)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -796,7 +796,7 @@
           <name>write_short</name>
           <externalName>write_short</externalName>
           <kind>12</kind>
-          <id>127</id>
+          <id>331</id>
           <help>write_short(dest, value)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -809,7 +809,7 @@
           <name>write_string</name>
           <externalName>write_string</externalName>
           <kind>12</kind>
-          <id>129</id>
+          <id>333</id>
           <help>write_string(dest, string)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -822,7 +822,7 @@
           <name>write_ubyte</name>
           <externalName>write_ubyte</externalName>
           <kind>12</kind>
-          <id>131</id>
+          <id>335</id>
           <help>write_ubyte(dest, value)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -835,7 +835,7 @@
           <name>write_uint</name>
           <externalName>write_uint</externalName>
           <kind>12</kind>
-          <id>133</id>
+          <id>337</id>
           <help>write_uint(dest, value)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -848,7 +848,7 @@
           <name>write_ushort</name>
           <externalName>write_ushort</externalName>
           <kind>12</kind>
-          <id>135</id>
+          <id>339</id>
           <help>write_ushort(dest, value)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>

@@ -51,8 +51,9 @@
             <string>if (global.License == true) {
     image_alpha = .5;
 }
-else
-image_alpha = 1;
+if (global.timer != 0) {
+    image_alpha = 1;
+}
 </string>
           </argument>
         </arguments>
@@ -76,7 +77,7 @@ image_alpha = 1;
           <argument>
             <kind>1</kind>
             <string>if (global.License == false) {
-    instance_create(350,230,obj_License);
+    instance_create(389,295,obj_License);
     global.timer = 2;
     global.License = true;
 }

@@ -54,7 +54,7 @@
     <instance objName="obj_Medium_button" x="416" y="224" name="inst_2652F3C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_Expert_button" x="416" y="384" name="inst_5783C50E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_Custom_button" x="416" y="544" name="inst_44AA8D30" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_Singleplayer_menu_Back" x="96" y="96" name="inst_9AE59E73" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_Back_button" x="0" y="0" name="inst_3252B033" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
