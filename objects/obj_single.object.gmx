@@ -85,7 +85,7 @@ restarts=0;
           <argument>
             <kind>1</kind>
             <string>t=1;
-restart+=1;
+restarts+=1;
 /*//regenerate board, for debuging. Generate board as if player pressed on field 1,1
 generateBombPlacement(global.boardx,global.boardy,bombs,0,0);
 generateBoardNumbers();
