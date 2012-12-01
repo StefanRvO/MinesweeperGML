@@ -3,7 +3,7 @@
   <spriteName>spr_Beginner_button</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>500</depth>
   <persistent>0</persistent>
   <parentName>obj_Button_parrent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,13 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.felter_vandret = 8;
-global.felter_lodret = 8;
-global.numb_bombs = 10;
+            <string>if (global.Custom == false) {
+    global.felter_vandret = 8;
+    global.felter_lodret = 8;
+    global.numb_bombs = 10;
 
-room_goto(Ingame);
+    room_goto(Ingame);
 
-global.singleplayer = true;
+    global.singleplayer = true;
+}
 </string>
           </argument>
         </arguments>

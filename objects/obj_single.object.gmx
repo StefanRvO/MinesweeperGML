@@ -67,91 +67,6 @@ restarts=0;
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="40">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>t=1;
-restarts+=1;
-/*//regenerate board, for debuging. Generate board as if player pressed on field 1,1
-generateBombPlacement(global.boardx,global.boardy,bombs,0,0);
-generateBoardNumbers();
-for (i=0;i&lt;global.boardx;i+=1)
-{
-    for(j=0;j&lt;global.boardy;j+=1)
-    {
-        global.bombarray[i,j]=ds_grid_get(0,i,j);
-    }
-}
-ds_grid_destroy(0);*/
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="38">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/*
-pointX=get_integer("feltX, tryk",5)-1;
-pointY=get_integer("feltY,tryk",5)-1;
-ds_grid_create(global.boardx,global.boardy);
-        for(i=0;i&lt;global.boardx;i+=1)
-        {
-            for(j=0;j&lt;global.boardy;j+=1)
-            {   
-            ds_grid_add(0,i,j,global.bombarray[i,j]);
-            }
-        }
-hit=clickField(pointX,pointY,0);
-
-if(hit==29)
-{
-    show_message("you have hit a bomb... damn you suck at this..");
-}
-for (i=0;i&lt;global.boardx;i+=1)
-{
-    for(j=0;j&lt;global.boardy;j+=1)
-    {
-        global.bombarray[i,j]=ds_grid_get(0,i,j);
-    }
-}
-ds_grid_destroy(0);
-
-
-//used for testing only
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="6" enumb="54">
       <action>
         <libid>1</libid>
@@ -371,6 +286,114 @@ draw_text(global.fieldsize*global.boardx+40, global.fieldsize*global.boardy+40,"
           <argument>
             <kind>1</kind>
             <string>game_restart();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="40">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>t=1;
+restarts+=1;
+/*//regenerate board, for debuging. Generate board as if player pressed on field 1,1
+generateBombPlacement(global.boardx,global.boardy,bombs,0,0);
+generateBoardNumbers();
+for (i=0;i&lt;global.boardx;i+=1)
+{
+    for(j=0;j&lt;global.boardy;j+=1)
+    {
+        global.bombarray[i,j]=ds_grid_get(0,i,j);
+    }
+}
+ds_grid_destroy(0);*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="38">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/*
+pointX=get_integer("feltX, tryk",5)-1;
+pointY=get_integer("feltY,tryk",5)-1;
+ds_grid_create(global.boardx,global.boardy);
+        for(i=0;i&lt;global.boardx;i+=1)
+        {
+            for(j=0;j&lt;global.boardy;j+=1)
+            {   
+            ds_grid_add(0,i,j,global.bombarray[i,j]);
+            }
+        }
+hit=clickField(pointX,pointY,0);
+
+if(hit==29)
+{
+    show_message("you have hit a bomb... damn you suck at this..");
+}
+for (i=0;i&lt;global.boardx;i+=1)
+{
+    for(j=0;j&lt;global.boardy;j+=1)
+    {
+        global.bombarray[i,j]=ds_grid_get(0,i,j);
+    }
+}
+ds_grid_destroy(0);
+
+
+//used for testing only
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="27">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(Singleplayer_menu);
 </string>
           </argument>
         </arguments>
