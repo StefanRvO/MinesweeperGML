@@ -25,33 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
-switch(get_integer("do you want to be host or client? Enter 1 for host, 2 for client ",""))
-{
-case 1:
-instance_create(0,0,server);
-break;
-case 2:
-instance_create(0,0,client);
-break;
-default:
-//ignore
-}
-*/
+            <string>global.textbox_vandret = false;
 
-if (global.client_selected == true) {
-    instance_create(0,0,client);
-}
+input_vandret = keyboard_string;
 
-if (global.server_selected == true) {
-    instance_create(0,0,server);
-}
+Cursor[0] = '';
+Cursor[1] = '_';
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="10" enumb="82">
+    <event eventtype="6" enumb="53">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -68,7 +53,38 @@ if (global.server_selected == true) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>game_restart();
+            <string>if (global.textbox_vandret == true) {
+    global.textbox_vandret = false;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>{
+    draw_sprite(spr_Textbox_vandret,global.textbox_vandret,x + 60,y + 20)
+
+    draw_set_color(c_black);
+    Text = string_replace_all(input_vandret,"#","\#");
+    draw_text(x + 66,y + 32,Text + Cursor[global.textbox_vandret])
+}
 </string>
           </argument>
         </arguments>
@@ -91,13 +107,15 @@ if (global.server_selected == true) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(Multiplayer_menu);
+            <string>if (global.textbox_vandret == true) {
+    global.textbox_vandret = false;
+}
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="10" enumb="8">
+    <event eventtype="10" enumb="13">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -114,7 +132,9 @@ if (global.server_selected == true) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(Multiplayer_menu);
+            <string>if (global.textbox_vandret == true) {
+    global.textbox_vandret = false;
+}
 </string>
           </argument>
         </arguments>
