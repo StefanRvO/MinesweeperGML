@@ -3,11 +3,34 @@
   <spriteName>spr_Custom_button</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>500</depth>
   <persistent>0</persistent>
   <parentName>obj_Button_parrent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.Custom = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="7">
       <action>
         <libid>1</libid>
@@ -25,13 +48,24 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.felter_vandret = get_integer('Antal felter vandret','10');
+            <string>/*global.felter_vandret = get_integer('Antal felter vandret','10');
 global.felter_lodret = get_integer('Antal felter lodret','10');
 global.numb_bombs = get_integer('Antal bomber','50');
 
 room_goto(Ingame);
 
 global.singleplayer = true;
+*/
+if (global.Custom == false) {
+    instance_create(330,2.5,obj_Custom_background);
+    instance_create(415,80,obj_Textbox_vandret);
+    instance_create(415,180,obj_Textbox_lodret);
+    instance_create(415,280,obj_Textbox_bomber);
+    instance_create(415,400,obj_Start_button);
+    instance_create(415,550,obj_Cancel_button);
+    global.Custom = true;
+    global.timer2 = 2;
+}
 </string>
           </argument>
         </arguments>
