@@ -59,6 +59,12 @@
       <sprite>sprites\spr_field8</sprite>
       <sprite>sprites\spr_flag</sprite>
       <sprite>sprites\spr_Ingame_top</sprite>
+      <sprite>sprites\spr_Ingame_top_multiplayer</sprite>
+      <sprite>sprites\spr_restart_button</sprite>
+      <sprite>sprites\spr_Menu_button</sprite>
+      <sprite>sprites\spr_Retry_button</sprite>
+      <sprite>sprites\spr_You_Lost</sprite>
+      <sprite>sprites\spr_You_Won</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -119,6 +125,10 @@
       <object>objects\obj_multi</object>
       <object>objects\obj_single</object>
       <object>objects\server</object>
+      <object>objects\obj_restart_button</object>
+      <object>objects\obj_Retry_button</object>
+      <object>objects\obj_Menu_button</object>
+      <object>objects\obj_Back_button2</object>
     </objects>
   </objects>
   <rooms name="rooms">
