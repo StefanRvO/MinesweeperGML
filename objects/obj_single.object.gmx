@@ -39,6 +39,8 @@ t=1;
 global.flagsPlaced=0;
 global.fieldsOpen=0;
 restarts=0;
+
+global.timer = 0;
 </string>
           </argument>
         </arguments>
@@ -67,6 +69,29 @@ restarts=0;
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.timer += 1/30;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="54">
       <action>
         <libid>1</libid>
@@ -87,8 +112,8 @@ restarts=0;
             <string>if (t==0) //prevent fault if board isn't generated yet.
 //if we got time, we should implent the possabillity to place flags before the board is generated
 {
-    pointX=floor(mouse_x/global.fieldsize*1.05); //hak to correct a bug somewhere
-    pointY=floor(mouse_y/global.fieldsize);
+    pointX=floor(mouse_x/global.fieldsize);
+    pointY=floor((mouse_y-101)/global.fieldsize);
     if (pointX&gt;global.boardx-1 || pointY&gt;global.boardy-1)
         exit;
     //show_message(string(pointX)+" , "+string(pointY));
@@ -134,8 +159,8 @@ restarts=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>pointX=floor(mouse_x/global.fieldsize*1.05); //hack to correct a bug somewhere
-pointY=floor(mouse_y/global.fieldsize);
+            <string>pointX=floor(mouse_x/global.fieldsize); 
+pointY=floor((mouse_y-101)/global.fieldsize);
 if (pointX&gt;global.boardx-1 || pointY&gt;global.boardy-1)
     exit;
 if (t)
@@ -253,12 +278,18 @@ show_message(string(totalcells)+"  "+string(open+flags));
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//draw initial board with no open fields
+            <string>draw_sprite(spr_Ingame_top,0,0,0 - 50);
+
+draw_set_color(c_red);
+draw_text_transformed(1140,42,global.timer,1.5,1.5,0);
+draw_set_color(c_black);
+
+//draw initial board with no open fields
 //stop drawing after player has pressed a field
 if(t) {
 for(i=0;i&lt;global.boardx;i+=1) {
     for (j=0;j&lt;global.boardy;j+=1) {
-        draw_sprite(spr_closed,0,global.fieldsize*i,global.fieldsize*j);
+        draw_sprite(spr_closed,0,global.fieldsize*i,global.fieldsize*j + 101);
         }
     }
 }

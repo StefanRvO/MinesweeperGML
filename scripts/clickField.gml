@@ -31,9 +31,22 @@ if(flag)
     {
         bombarray[pointX,pointY]+=10;
     }
-    else
+    else if not (1 <= bombarray[pointX,pointY] && bombarray[pointX,pointY] <= 8)
     {   //else, place flag
+    
         bombarray[pointX,pointY]-=10;
+    }
+    else
+    {
+        ds_grid_create(arrayX,arrayY);
+        for(i=0;i<arrayX;i+=1)
+        {
+            for(j=0;j<arrayY;j+=1)
+            {   
+                ds_grid_add(0,i,j,bombarray[i,j]);
+            }
+        }
+        return 0;
     }
 }
 else if(bombarray[pointX,pointY]==29)

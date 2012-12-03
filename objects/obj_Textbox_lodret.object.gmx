@@ -31,7 +31,9 @@
 
 global.felter_lodret = real(input_lodret);
 
-
+if (string_length(input_lodret) &gt; 40) {
+    input_lodret = '30';
+}
 </string>
           </argument>
         </arguments>
@@ -60,6 +62,8 @@ global.felter_lodret = real(input_lodret);
 }
 else
 input_lodret = keyboard_string;
+
+global.To_many_lodret = false;
 </string>
           </argument>
         </arguments>

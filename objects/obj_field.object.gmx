@@ -95,7 +95,7 @@ if (value&gt;=20 &amp;&amp; value&lt;=29) state=spr_closed;
             <kind>1</kind>
             <string>//draw the field
 //temporary fix to multiply x with 1.05
-draw_sprite(state,0,x,y);
+draw_sprite(state,0,x,y + 101);
 </string>
           </argument>
         </arguments>

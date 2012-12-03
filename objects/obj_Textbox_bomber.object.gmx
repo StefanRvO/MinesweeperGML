@@ -30,6 +30,12 @@
 }
 
 global.numb_bombs = real(input_bomber);
+
+if (string_length(input_bomber) &gt; 40) {
+    input_bomber = '2000';
+}
+
+global.max_bombs = (global.felter_vandret * global.felter_lodret) - 9;
 </string>
           </argument>
         </arguments>
@@ -58,6 +64,8 @@ global.numb_bombs = real(input_bomber);
 }
 else
 input_bomber = keyboard_string;
+
+global.To_many_bombs = false;
 </string>
           </argument>
         </arguments>

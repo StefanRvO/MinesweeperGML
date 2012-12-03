@@ -30,6 +30,10 @@
 }
 
 global.felter_vandret = real(input_vandret);
+
+if (string_length(input_vandret) &gt; 40) {
+    input_vandret = '60';
+}
 </string>
           </argument>
         </arguments>
@@ -58,6 +62,8 @@ global.felter_vandret = real(input_vandret);
 }
 else
 input_vandret = keyboard_string;
+
+global.To_many_vandret = false;
 </string>
           </argument>
         </arguments>

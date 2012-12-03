@@ -240,8 +240,8 @@ socket_send(serverSocket);
             <string>if (t==0) //prevent fault if board isn't generated yet.
 //if we got time, we should implent the possabillity to place flags before the board is generated
 {
-    pointX=floor(mouse_x/global.fieldsize*1.05); //hack to correct a bug somewhere
-    pointY=floor(mouse_y/global.fieldsize);
+    pointX=floor(mouse_x/global.fieldsize); 
+    pointY=floor((mouse_y-101)/global.fieldsize);
     if (pointX&gt;global.boardx-1 || pointY&gt;global.boardy-1)
     exit;
     //show_message(string(pointX)+" , "+string(pointY));
@@ -288,8 +288,8 @@ socket_send(serverSocket);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>pointX=floor(mouse_x/global.fieldsize*1.05); //hack to correct a bug somewhere
-pointY=floor(mouse_y/global.fieldsize);
+            <string>pointX=floor(mouse_x/global.fieldsize);
+pointY=floor((mouse_y-101)/global.fieldsize);
 if (pointX&gt;global.boardx-1 || pointY&gt;global.boardy-1)
     exit;
 if (t)
@@ -370,7 +370,7 @@ if(boardset){
 if(t) {
 for(i=0;i&lt;global.boardx;i+=1) {
     for (j=0;j&lt;global.boardy;j+=1) {
-        draw_sprite(spr_closed,0,global.fieldsize*i,global.fieldsize*j);
+        draw_sprite(spr_closed,0,global.fieldsize*i,global.fieldsize*j + 101);
         }
     }
 }

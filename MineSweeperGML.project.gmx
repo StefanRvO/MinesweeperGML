@@ -58,6 +58,7 @@
       <sprite>sprites\spr_field7</sprite>
       <sprite>sprites\spr_field8</sprite>
       <sprite>sprites\spr_flag</sprite>
+      <sprite>sprites\spr_Ingame_top</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>

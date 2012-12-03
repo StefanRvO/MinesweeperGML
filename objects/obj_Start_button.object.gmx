@@ -25,9 +25,21 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.timer2 == 0) {
-    room_goto(Ingame);
-    global.singleplayer = true;
+            <string>if (global.felter_vandret &lt; 61 &amp;&amp; global.felter_vandret &gt; 2 &amp;&amp; global.felter_lodret &lt; 31 &amp;&amp; global.felter_lodret &gt; 2 &amp;&amp; global.numb_bombs &lt; 2001 &amp;&amp; global.numb_bombs &gt; 1) {
+        room_goto(Ingame);
+        global.singleplayer = true;
+}
+
+if (global.felter_vandret &gt; 60 || global.felter_vandret &lt; 3) {
+    global.To_many_vandret = true;
+}
+
+if (global.felter_lodret &gt; 35 || global.felter_lodret &lt; 3) {
+    global.To_many_lodret = true;
+}
+
+if (global.numb_bombs &gt; 2000 || global.numb_bombs &lt; 1) {
+    global.To_many_bombs = true;
 }
 </string>
           </argument>
