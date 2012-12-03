@@ -41,6 +41,10 @@ global.fieldsOpen=0;
 restarts=0;
 
 global.timer = 0;
+lost = false;
+won = false;
+instance_create(585,50,obj_restart_button);
+instance_create(640,-3,obj_Back_button2);
 </string>
           </argument>
         </arguments>
@@ -86,7 +90,25 @@ global.timer = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.timer += 1/30;
+            <string>if (global.timer &lt; 999 &amp;&amp; lost == false &amp;&amp; won == false) {
+    global.timer += 1/30;
+}
+
+if (global.t == true) {
+    t = 1;
+    lost = false;
+    won = false;
+    global.t = false;
+    global.timer = 0;
+}
+
+if (global.fieldsOpen == global.boardy * global.boardx - bombs &amp;&amp; won == false) {
+    won = true;
+    global.fieldsOpen = 0;
+    instance_create(433,500,obj_Retry_button);
+    instance_create(700,500,obj_Menu_button);
+}
+
 </string>
           </argument>
         </arguments>
@@ -109,33 +131,37 @@ global.timer = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (t==0) //prevent fault if board isn't generated yet.
-//if we got time, we should implent the possabillity to place flags before the board is generated
-{
-    pointX=floor(mouse_x/global.fieldsize);
-    pointY=floor((mouse_y-101)/global.fieldsize);
-    if (pointX&gt;global.boardx-1 || pointY&gt;global.boardy-1)
-        exit;
-    //show_message(string(pointX)+" , "+string(pointY));
-    //place or remove flag
-    ds_grid_create(global.boardx,global.boardy);
-            for(i=0;i&lt;global.boardx;i+=1)
-            {
-                for(j=0;j&lt;global.boardy;j+=1)
-                {   
-                ds_grid_add(0,i,j,global.bombarray[i,j]);
-                }
-            }
-    clickField(pointX,pointY,1);
-    countStats();
-    for (i=0;i&lt;global.boardx;i+=1)
+            <string>if (lost == false &amp;&amp; won == false) {
+        if (t==0) //prevent fault if board isn't generated yet.
+    //if we got time, we should implent the possabillity to place flags before the board is generated
     {
-        for(j=0;j&lt;global.boardy;j+=1)
+        pointX=floor(mouse_x/global.fieldsize);
+        pointY=floor((mouse_y-101)/global.fieldsize);
+        if (pointX&gt;global.boardx-1 || pointY&gt;global.boardy-1)
+            exit;
+        if (pointX&lt;0 || pointY&lt;0)
+        exit;
+        //show_message(string(pointX)+" , "+string(pointY));
+        //place or remove flag
+        ds_grid_create(global.boardx,global.boardy);
+                for(i=0;i&lt;global.boardx;i+=1)
+                {
+                    for(j=0;j&lt;global.boardy;j+=1)
+                    {   
+                    ds_grid_add(0,i,j,global.bombarray[i,j]);
+                    }
+                }
+        clickField(pointX,pointY,1);
+        countStats();
+        for (i=0;i&lt;global.boardx;i+=1)
         {
+            for(j=0;j&lt;global.boardy;j+=1)
+            {
             global.bombarray[i,j]=ds_grid_get(0,i,j);
+            }
         }
+        ds_grid_destroy(0);
     }
-    ds_grid_destroy(0);
 }
 </string>
           </argument>
@@ -159,59 +185,67 @@ global.timer = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>pointX=floor(mouse_x/global.fieldsize); 
-pointY=floor((mouse_y-101)/global.fieldsize);
-if (pointX&gt;global.boardx-1 || pointY&gt;global.boardy-1)
-    exit;
-if (t)
-{
-    generateBombPlacement(global.boardx,global.boardy,bombs,pointX,pointY);
-    generateBoardNumbers();
-    for (i=0;i&lt;global.boardx;i+=1)
+            <string>if (lost == false &amp;&amp; won == false) {
+    pointX=floor(mouse_x/global.fieldsize); 
+    pointY=floor((mouse_y-101)/global.fieldsize);
+    if (pointX&gt;global.boardx-1 || pointY&gt;global.boardy-1)
+       exit;
+    if (pointX&lt;0 || pointY&lt;0)
+        exit;
+    if (t)
     {
-        for(j=0;j&lt;global.boardy;j+=1)
-        {
-            global.bombarray[i,j]=ds_grid_get(0,i,j);
-        }
-    }
-    ds_grid_destroy(0);
-    
-    for (i=0;i&lt;global.boardx;i+=1)
-    {
-        for(j=0;j&lt;global.boardy;j+=1)
-        {
-            instance_create(i*global.fieldsize,j*global.fieldsize,obj_field);
-        }
-    }
-    //don't draw the board anymore. this is now handled by obj_field
-    t=0;
-}
-//show_message(string(pointX)+" , "+string(pointY));
-ds_grid_create(global.boardx,global.boardy);
-        for(i=0;i&lt;global.boardx;i+=1)
+        generateBombPlacement(global.boardx,global.boardy,bombs,pointX,pointY);
+        generateBoardNumbers();
+        for (i=0;i&lt;global.boardx;i+=1)
         {
             for(j=0;j&lt;global.boardy;j+=1)
-            {   
-            ds_grid_add(0,i,j,global.bombarray[i,j]);
+            {
+                global.bombarray[i,j]=ds_grid_get(0,i,j);
             }
+       }
+       ds_grid_destroy(0);
+    
+        for (i=0;i&lt;global.boardx;i+=1)
+       {
+           for(j=0;j&lt;global.boardy;j+=1)
+          {
+             instance_create(i*global.fieldsize,j*global.fieldsize,obj_field);
+         }
         }
-        //reset board if we hit a bomb
-if(clickField(pointX,pointY,0)==29)
-{
-    restarts+=1;
-    show_message("You hit a bomb, board has been reset");
-    t=1;
-}
-
-countStats();
-for (i=0;i&lt;global.boardx;i+=1)
-{
-    for(j=0;j&lt;global.boardy;j+=1)
-    {
-        global.bombarray[i,j]=ds_grid_get(0,i,j);
+        //don't draw the board anymore. this is now handled by obj_field
+        t=0;
     }
+    //show_message(string(pointX)+" , "+string(pointY));
+    ds_grid_create(global.boardx,global.boardy);
+            for(i=0;i&lt;global.boardx;i+=1)
+            {
+                for(j=0;j&lt;global.boardy;j+=1)
+              {   
+               ds_grid_add(0,i,j,global.bombarray[i,j]);
+              }
+           }
+          //reset board if we hit a bomb
+    if(clickField(pointX,pointY,0)==29)
+    {
+        restarts+=1;
+        instance_create(433,500,obj_Retry_button);
+        instance_create(700,500,obj_Menu_button);
+        lost = true;
+       /*show_message("You hit a bomb, board has been reset");
+       t=1;
+       */
+    }   
+
+    countStats();
+    for (i=0;i&lt;global.boardx;i+=1)
+    {
+       for(j=0;j&lt;global.boardy;j+=1)
+       {
+           global.bombarray[i,j]=ds_grid_get(0,i,j);
+       }
+    }
+    ds_grid_destroy(0);
 }
-ds_grid_destroy(0);
 </string>
           </argument>
         </arguments>
@@ -280,6 +314,13 @@ show_message(string(totalcells)+"  "+string(open+flags));
             <kind>1</kind>
             <string>draw_sprite(spr_Ingame_top,0,0,0 - 50);
 
+if (lost == true) {
+    draw_sprite(spr_You_Lost,0,350,150);
+}
+if (won == true) {
+    draw_sprite(spr_You_Won,0,350,150);
+}
+
 draw_set_color(c_red);
 draw_text_transformed(1140,42,global.timer,1.5,1.5,0);
 draw_set_color(c_black);
@@ -293,7 +334,11 @@ for(i=0;i&lt;global.boardx;i+=1) {
         }
     }
 }
-draw_text(global.fieldsize*global.boardx+40, global.fieldsize*global.boardy+40,"You: open fields: "+string(global.fieldsOpen)+"/"+string(global.boardy*global.boardx-bombs)+"  found bombs: "+string(global.flagsPlaced)+"/"+string(bombs)+ " Restarts: "+string(restarts));
+draw_set_color(c_red);
+draw_text_transformed(47,26,"Open: ",1.3,1.3,0);
+draw_text_transformed(228,26,"Bombs: ",1.3,1.3,0);
+draw_text_transformed(47,56,string(global.fieldsOpen) + "/" + string(global.boardy * global.boardx - bombs),1.3,1.3,0);
+draw_text_transformed(228,56,string(global.flagsPlaced) + "/" + string(bombs),1.3,1.3,0);
 </string>
           </argument>
         </arguments>
