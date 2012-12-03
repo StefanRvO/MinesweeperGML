@@ -26,6 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>global.Custom = false;
+global.textbox_vandret = false;
+global.textbox_lodret = false;
+global.textbox_bomber = false;
 </string>
           </argument>
         </arguments>

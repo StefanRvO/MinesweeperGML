@@ -25,13 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.textbox_lodret = false;
-
-input_lodret = keyboard_string;
-input_lodret = '5';
+            <string>input_lodret = keyboard_string;
+input_lodret = '16';
 
 Cursor[0] = '';
 Cursor[1] = '_';
+
+global.To_many_lodret = false;
 </string>
           </argument>
         </arguments>
@@ -81,12 +81,19 @@ Cursor[1] = '_';
             <kind>1</kind>
             <string>{
     draw_sprite(spr_Textbox_lodret,global.textbox_lodret,x,y)
-
-    draw_text(x,y - 15,'Felter lodret:')
     
     draw_set_color(c_black);
+    draw_text(x,y - 15,'Felter lodret(Max: 30 Min: 3):')
+    
+    if (global.To_many_lodret == true) {
+    draw_set_color(c_red);
+    }
+    else
+    draw_set_color(c_black);
+    
     Text = string_replace_all(input_lodret,"#","\#");
-    draw_text(x + 5,y + 12,Text + Cursor[global.textbox_lodret])
+    Text_draw = string_digits(Text);
+    draw_text(x + 5,y + 12,Text_draw + Cursor[global.textbox_lodret])
 }
 </string>
           </argument>

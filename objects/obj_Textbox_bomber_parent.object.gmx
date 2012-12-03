@@ -25,13 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.textbox_bomber = false;
-
-input_bomber = keyboard_string;
-input_bomber = '10';
+            <string>input_bomber = keyboard_string;
+input_bomber = '99';
 
 Cursor[0] = '';
 Cursor[1] = '_';
+
+global.To_many_bombs = false;
+
+global.max_bombs = '2091';
 </string>
           </argument>
         </arguments>
@@ -81,12 +83,19 @@ Cursor[1] = '_';
             <kind>1</kind>
             <string>{
     draw_sprite(spr_Textbox_bomber,global.textbox_bomber,x,y)
-
-    draw_text(x,y - 15,'Antal bomber:')
     
     draw_set_color(c_black);
+    draw_text(x,y - 15,'Antal bomber(Max:' + string(global.max_bombs) + ' Min: 1):')
+    
+    if (global.To_many_bombs == true) {
+    draw_set_color(c_red);
+    }
+    else
+    draw_set_color(c_black);
+    
     Text = string_replace_all(input_bomber,"#","\#");
-    draw_text(x + 5,y + 12,Text + Cursor[global.textbox_bomber])
+    Text_draw = string_digits(Text);
+    draw_text(x + 5,y + 12,Text_draw + Cursor[global.textbox_bomber])
 }
 </string>
           </argument>
