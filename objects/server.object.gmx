@@ -288,6 +288,8 @@ while(tcp_receive(opponentSocket, expectedBytes)) {
     pointY=floor((mouse_y-101)/global.fieldsize);
     if (pointX&gt;global.boardx-1 || pointY&gt;global.boardy-1)
     exit;
+    if (pointX&lt;0 || pointY&lt;0)
+    exit;
     //show_message(string(pointX)+" , "+string(pointY));
     //place or remove flag
     ds_grid_create(global.boardx,global.boardy);
@@ -335,6 +337,8 @@ while(tcp_receive(opponentSocket, expectedBytes)) {
             <string>pointX=floor(mouse_x/global.fieldsize);
 pointY=floor((mouse_y-101)/global.fieldsize);
 if (pointX&gt;global.boardx-1 || pointY&gt;global.boardy-1)
+    exit;
+if (pointX&lt;0 || pointY&lt;0)
     exit;
 if (t)
 {

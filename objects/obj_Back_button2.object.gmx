@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(Start_menu);
+            <string>room_goto(Singleplayer_menu);
 </string>
           </argument>
         </arguments>
