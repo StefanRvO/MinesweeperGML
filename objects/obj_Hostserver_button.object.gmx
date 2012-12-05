@@ -29,6 +29,8 @@
 global.textbox_vandret2 = false;
 global.textbox_lodret2 = false;
 global.textbox_bomber2 = false;
+global.textbox_ip = false;
+global.join_menu = false;
 
 global.max_bombs2 = 99;
 </string>
@@ -53,7 +55,7 @@ global.max_bombs2 = 99;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*if (global.w8 == true) {
+            <string>if (global.join_menu == true) {
     image_alpha = .5;
 }
 </string>
@@ -84,7 +86,7 @@ global.max_bombs2 = 99;
 //room_goto(Ingame);
 
 
-if (global.Custom2 == false &amp;&amp; global.w8 == false) {
+if (global.Custom2 == false &amp;&amp; global.w8 == false &amp;&amp; global.join_menu == false) {
     instance_create(330,2.5,obj_host_menu);
     instance_create(415,80,obj_Textbox_vandret2);
     instance_create(415,180,obj_Textbox_lodret2);
