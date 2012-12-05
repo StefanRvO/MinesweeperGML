@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(Start_menu);
+            <string>room_goto(Multiplayer_menu);
 </string>
           </argument>
         </arguments>
@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.textbox_vandret == false &amp;&amp; global.textbox_lodret == false &amp;&amp; global.textbox_bomber == false &amp;&amp; global.Custom == false &amp;&amp; global.w8 == false) {
+            <string>if (global.textbox_vandret == false &amp;&amp; global.textbox_lodret == false &amp;&amp; global.textbox_bomber == false &amp;&amp; global.Custom == false) {
     room_goto(Start_menu);
 }
 </string>
@@ -73,7 +73,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.textbox_vandret == false &amp;&amp; global.textbox_lodret == false &amp;&amp; global.textbox_bomber == false &amp;&amp; global.Custom == false &amp;&amp; global.textbox_vandret2 == false &amp;&amp; global.textbox_lodret2 == false &amp;&amp; global.textbox_bomber2 == false &amp;&amp; global.Custom2 == false) {
+            <string>if (global.textbox_vandret == false &amp;&amp; global.textbox_lodret == false &amp;&amp; global.textbox_bomber == false &amp;&amp; global.Custom == false) {
     room_goto(Start_menu);
 }
 </string>

@@ -3,11 +3,64 @@
   <spriteName>spr_Hostserver_button</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>500</depth>
   <persistent>0</persistent>
   <parentName>obj_Button_parrent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.Custom2 = false;
+global.textbox_vandret2 = false;
+global.textbox_lodret2 = false;
+global.textbox_bomber2 = false;
+
+global.max_bombs2 = 99;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/*if (global.w8 == true) {
+    image_alpha = .5;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="7">
       <action>
         <libid>1</libid>
@@ -25,10 +78,22 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.multiplayer = true;
-global.server_selected = true;
+            <string>//global.multiplayer = true;
+//global.server_selected = true;
 
-room_goto(Ingame);
+//room_goto(Ingame);
+
+
+if (global.Custom2 == false &amp;&amp; global.w8 == false) {
+    instance_create(330,2.5,obj_host_menu);
+    instance_create(415,80,obj_Textbox_vandret2);
+    instance_create(415,180,obj_Textbox_lodret2);
+    instance_create(415,280,obj_Textbox_bomber2);
+    instance_create(415,400,obj_Start_button2);
+    instance_create(415,550,obj_Cancel_button2);
+    global.Custom2 = true;
+    global.timer3 = 2;
+}
 </string>
           </argument>
         </arguments>
