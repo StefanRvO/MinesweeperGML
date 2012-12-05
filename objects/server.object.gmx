@@ -225,8 +225,7 @@ socket_send(opponentSocket);
 if (opponentSocket &lt;0)
 exit;
 if(socket_has_error(opponentSocket)) {
-    show_message("Lost connection to the client: "+socket_error(opponentSocket));
-    room_goto(Multiplayer_menu);
+   instance_create(640,300,obj_Lost_connection);
 }
 
 else

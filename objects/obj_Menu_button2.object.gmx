@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>global.destroy = false;
+global.clear_room = true;
 </string>
           </argument>
         </arguments>
@@ -79,6 +80,7 @@
     global.client_selected = false;
     global.multiplayer = false;
     global.server_selected = false;
+    global.clear_room = true;
 </string>
           </argument>
         </arguments>

@@ -28,7 +28,8 @@
             <string>started=0;
 //show_message("client");
 var serverHost;
-serverHost = get_string("Please enter the server's IP address or hostname", "127.0.0.1");
+//serverHost = get_string("Please enter the server's IP address or hostname", "127.0.0.1");
+serverHost = global.ip_adress
 
 serverSocket = tcp_connect(serverHost, 12345);
 socket_sendbuffer_limit(serverSocket, 65536);
@@ -154,9 +155,15 @@ opponentRestarts=0;
             <string>if(started)
 {
 if(socket_has_error(serverSocket)) {
-    show_message("The connection to the server was lost:" + socket_error(serverSocket));
-    room_goto(Multiplayer_menu);
+    instance_create(640,300,obj_Lost_connection);
 }
+
+/*The networking code sends and recives in the following format:
+**First we send a byte (unsigned) which explains how many bytes the following message is
+**The we send a header, again unigned byte
+**acording to the header, we read som variables from the socket.
+**When messeage is done, we check again for a new message.
+*/
 while(tcp_receive(serverSocket, expectedBytes)) {
     if(nextByteIsHeader) {
         expectedBytes = read_ubyte(serverSocket);
