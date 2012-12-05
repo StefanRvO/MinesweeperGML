@@ -34,12 +34,24 @@ show_message("Can't create server (socketerror)");
 //goto multiplayer menu
 room_goto(Multiplayer_menu);
 }
-opponentSocket=-1;
+//opponentSocket=-1;
 frame=0;
 counter=0;
+opponentSocket=-1;
+global.MartinSucksSocket = -1;
 started=1;
 nextByteIsHeader = true;
 expectedBytes = 1;
+
+//interface
+global.timer = 0;
+lost = false;
+won = false;
+instance_create(530,50,obj_restart_button);
+instance_create(698,-3,obj_Back_button3);
+global.bomb_hit = false;
+instance_create(640,360,obj_w8_4_client);
+bombs = global.bombs_numb;
 </string>
           </argument>
         </arguments>
@@ -64,9 +76,9 @@ expectedBytes = 1;
 pointX=0;
 pointY=0;
 randomize();
-global.boardx=get_integer("antal felter vandret",5);
-global.boardy=get_integer("antal felter lodret",5);
-bombs=get_integer("antal bomber",5);
+//global.boardx=get_integer("antal felter vandret",5);
+//global.boardy=get_integer("antal felter lodret",5);
+//bombs=get_integer("antal bomber",5);
 t=1;
 //when t is set to 1, we start drawing (in control draw event)
 
@@ -153,6 +165,7 @@ socket_destroy(opponentSocket);
 if(started){
 if(opponentSocket &lt; 0) {
     opponentSocket = socket_accept(acc);
+    global.MartinSucksSocket=opponentSocket;
     if(opponentSocket &gt; 0) {
         socket_sendbuffer_limit(opponentSocket, 65536);
 }
@@ -213,7 +226,7 @@ if (opponentSocket &lt;0)
 exit;
 if(socket_has_error(opponentSocket)) {
     show_message("Lost connection to the client: "+socket_error(opponentSocket));
-    game_end();
+    room_goto(Multiplayer_menu);
 }
 
 else
@@ -264,6 +277,58 @@ while(tcp_receive(opponentSocket, expectedBytes)) {
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//timer
+if (global.timer &lt; 999 &amp;&amp; lost == false &amp;&amp; won == false &amp;&amp; opponentSocket &gt; 0) {
+    global.timer += 1/30;
+}
+
+//button retry
+if (global.t == true) {
+    t = 1;
+    lost = false;
+    won = false;
+    global.t = false;
+    global.timer = 0;
+}
+
+//multiplayer == win
+if (global.fieldsOpen == global.boardy * global.boardx - bombs &amp;&amp; won == false) {
+    won = true;
+    instance_create(640,500,obj_Menu_button2);
+}
+
+//multiplayer == loose
+if (opponentFieldsOpen &gt;= 1 &amp;&amp; opponentboardy * opponentboardx - opponentBombs &gt;= 1) {
+    if (opponentFieldsOpen == opponentboardy * opponentboardx - opponentBombs &amp;&amp; opponentSocket &gt; 0) {
+        lost = true;
+       
+        instance_create(640,500,obj_Menu_button2);
+    }
+}
+
+global.bombs_numb = bombs
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="54">
       <action>
         <libid>1</libid>
@@ -281,36 +346,38 @@ while(tcp_receive(opponentSocket, expectedBytes)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (t==0) //prevent fault if board isn't generated yet.
-//if we got time, we should implent the possabillity to place flags before the board is generated
-{
-    pointX=floor(mouse_x/global.fieldsize); 
-    pointY=floor((mouse_y-101)/global.fieldsize);
-    if (pointX&gt;global.boardx-1 || pointY&gt;global.boardy-1)
-    exit;
-    if (pointX&lt;0 || pointY&lt;0)
-    exit;
-    //show_message(string(pointX)+" , "+string(pointY));
-    //place or remove flag
-    ds_grid_create(global.boardx,global.boardy);
-            for(i=0;i&lt;global.boardx;i+=1)
-            {
-                for(j=0;j&lt;global.boardy;j+=1)
-                {   
-                ds_grid_add(0,i,j,global.bombarray[i,j]);
-                }
-            }
-    clickField(pointX,pointY,1);
-    countStats();
-    
-    for (i=0;i&lt;global.boardx;i+=1)
+            <string>if (lost == false &amp;&amp; won == false &amp;&amp; global.bomb_hit == false) {
+    if (t==0) //prevent fault if board isn't generated yet.
+    //if we got time, we should implent the possabillity to place flags before the board is generated
     {
-        for(j=0;j&lt;global.boardy;j+=1)
+        pointX=floor(mouse_x/global.fieldsize); 
+        pointY=floor((mouse_y-101)/global.fieldsize);
+        if (pointX&gt;global.boardx-1 || pointY&gt;global.boardy-1)
+        exit;
+        if (pointX&lt;0 || pointY&lt;0)
+        exit;
+        //show_message(string(pointX)+" , "+string(pointY));
+        //place or remove flag
+        ds_grid_create(global.boardx,global.boardy);
+                for(i=0;i&lt;global.boardx;i+=1)
+                {
+                    for(j=0;j&lt;global.boardy;j+=1)
+                    {   
+                    ds_grid_add(0,i,j,global.bombarray[i,j]);
+                    }
+                }
+        clickField(pointX,pointY,1);
+        countStats();
+        
+        for (i=0;i&lt;global.boardx;i+=1)
         {
-            global.bombarray[i,j]=ds_grid_get(0,i,j);
+            for(j=0;j&lt;global.boardy;j+=1)
+            {
+                global.bombarray[i,j]=ds_grid_get(0,i,j);
+            }
         }
+        ds_grid_destroy(0);
     }
-    ds_grid_destroy(0);
 }
 </string>
           </argument>
@@ -334,16 +401,57 @@ while(tcp_receive(opponentSocket, expectedBytes)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>pointX=floor(mouse_x/global.fieldsize);
-pointY=floor((mouse_y-101)/global.fieldsize);
-if (pointX&gt;global.boardx-1 || pointY&gt;global.boardy-1)
-    exit;
-if (pointX&lt;0 || pointY&lt;0)
-    exit;
-if (t)
-{
-    generateBombPlacement(global.boardx,global.boardy,bombs,pointX,pointY);
-    generateBoardNumbers();
+            <string>if (lost == false &amp;&amp; won == false &amp;&amp; global.bomb_hit == false &amp;&amp; opponentSocket &gt; 0) {
+    pointX=floor(mouse_x/global.fieldsize);
+    pointY=floor((mouse_y-101)/global.fieldsize);
+    if (pointX&gt;global.boardx-1 || pointY&gt;global.boardy-1)
+        exit;
+    if (pointX&lt;0 || pointY&lt;0)
+        exit;
+    if (t)
+    {
+        generateBombPlacement(global.boardx,global.boardy,bombs,pointX,pointY);
+        generateBoardNumbers();
+        for (i=0;i&lt;global.boardx;i+=1)
+        {
+            for(j=0;j&lt;global.boardy;j+=1)
+            {
+                global.bombarray[i,j]=ds_grid_get(0,i,j);
+            }
+        }
+        ds_grid_destroy(0);
+        
+        for (i=0;i&lt;global.boardx;i+=1)
+        {
+            for(j=0;j&lt;global.boardy;j+=1)
+            {
+                instance_create(i*global.fieldsize,j*global.fieldsize,obj_field);
+            }
+        }
+        //don't draw the board anymore. this is now handled by obj_field
+        t=0;
+    }
+    //show_message(string(pointX)+" , "+string(pointY));
+    ds_grid_create(global.boardx,global.boardy);
+            for(i=0;i&lt;global.boardx;i+=1)
+            {
+                for(j=0;j&lt;global.boardy;j+=1)
+                {   
+                ds_grid_add(0,i,j,global.bombarray[i,j]);
+                }
+            }
+            //reset board if we hit a bomb
+    if(clickField(pointX,pointY,0)==29)
+    {
+        restarts+=1;
+        instance_create(640,300,obj_Hit_bomb);
+        /*show_message("You hit a bomb, board has been reset");
+        t=1;
+        */
+    }
+    countStats();
+    
+    
     for (i=0;i&lt;global.boardx;i+=1)
     {
         for(j=0;j&lt;global.boardy;j+=1)
@@ -352,44 +460,7 @@ if (t)
         }
     }
     ds_grid_destroy(0);
-    
-    for (i=0;i&lt;global.boardx;i+=1)
-    {
-        for(j=0;j&lt;global.boardy;j+=1)
-        {
-            instance_create(i*global.fieldsize,j*global.fieldsize,obj_field);
-        }
-    }
-    //don't draw the board anymore. this is now handled by obj_field
-    t=0;
 }
-//show_message(string(pointX)+" , "+string(pointY));
-ds_grid_create(global.boardx,global.boardy);
-        for(i=0;i&lt;global.boardx;i+=1)
-        {
-            for(j=0;j&lt;global.boardy;j+=1)
-            {   
-            ds_grid_add(0,i,j,global.bombarray[i,j]);
-            }
-        }
-        //reset board if we hit a bomb
-if(clickField(pointX,pointY,0)==29)
-{
-    restarts+=1;
-    show_message("You hit a bomb, board has been reset");
-    t=1;
-}
-countStats();
-
-
-for (i=0;i&lt;global.boardx;i+=1)
-{
-    for(j=0;j&lt;global.boardy;j+=1)
-    {
-        global.bombarray[i,j]=ds_grid_get(0,i,j);
-    }
-}
-ds_grid_destroy(0);
 </string>
           </argument>
         </arguments>
@@ -412,7 +483,19 @@ ds_grid_destroy(0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//draw initial board with no open fields
+            <string>draw_sprite(spr_Ingame_top_multiplayer,0,0,0 - 50);
+
+if (lost == true) {
+    draw_sprite(spr_You_Lost,0,350,150);
+}
+if (won == true) {
+    draw_sprite(spr_You_Won,0,350,150);
+}
+
+draw_set_color(c_black);
+draw_text_transformed(600,42,global.timer,1.5,1.5,0);
+
+//draw initial board with no open fields
 //stop drawing after player has pressed a field
 if(t) {
 for(i=0;i&lt;global.boardx;i+=1) {
@@ -421,8 +504,34 @@ for(i=0;i&lt;global.boardx;i+=1) {
         }
     }
 }
-draw_text(global.fieldsize*global.boardx+40, global.fieldsize*global.boardy+40,"You: open fields: "+string(global.fieldsOpen)+"/"+string(global.boardy*global.boardx-bombs)+"  found bombs: "+string(global.flagsPlaced)+"/"+string(bombs)+ " Restarts: "+string(restarts));
-draw_text(global.fieldsize*global.boardx+40, global.fieldsize*global.boardy+60,"opponent: open fields: "+string(opponentFieldsOpen)+"/"+string(opponentboardy*opponentboardx-opponentBombs)+"  found bombs: "+string(opponentFlags)+"/"+string(opponentBombs)+ " Restarts: "+string(opponentRestarts));
+
+//you
+    draw_set_color(c_blue);
+    //Open
+    draw_text_transformed(40,26,"Open:",1.3,1.3,0);
+    draw_text_transformed(40,56,string(global.fieldsOpen) + "/" + string(global.boardy * global.boardx-bombs),1.3,1.3,0);
+    
+    //Bombs
+    draw_text_transformed(210,26,"Bombs:",1.3,1.3,0);
+    draw_text_transformed(210,56,string(global.flagsPlaced) + "/"+string(bombs),1.3,1.3,0);
+    
+    //Restarts
+    draw_text_transformed(368,26,"Restarts:",1.3,1.3,0);
+    draw_text_transformed(368,56,string(restarts),1.3,1.3,0);
+    
+//Opponent
+    draw_set_color(c_red);
+    //Open
+    draw_text_transformed(1115,26,"Open:",1.3,1.3,0);
+    draw_text_transformed(1115,56,string(opponentFieldsOpen) + "/" + string(opponentboardy*opponentboardx-opponentBombs),1.3,1.3,0)
+     
+    //Bombs
+    draw_text_transformed(950,26,"Bombs:",1.3,1.3,0);
+    draw_text_transformed(950,56,string(opponentFlags) + "/" + string(opponentBombs),1.3,1.3,0);
+    
+    //Restarts
+    draw_text_transformed(814,26,"Restarts:",1.3,1.3,0);
+    draw_text_transformed(814,56,string(opponentRestarts),1.3,1.3,0);
 </string>
           </argument>
         </arguments>
