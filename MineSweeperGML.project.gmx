@@ -43,6 +43,8 @@
     <sprites name="Multiplayer_menu">
       <sprite>sprites\spr_Hostserver_button</sprite>
       <sprite>sprites\spr_Joingame_button</sprite>
+      <sprite>sprites\spr_Client_rdy</sprite>
+      <sprite>sprites\spr_w8_4_client</sprite>
     </sprites>
     <sprites name="Ingame">
       <sprite>sprites\spr_bomb</sprite>
@@ -62,12 +64,16 @@
       <sprite>sprites\spr_Ingame_top_multiplayer</sprite>
       <sprite>sprites\spr_restart_button</sprite>
       <sprite>sprites\spr_Menu_button</sprite>
+      <sprite>sprites\spr_Menu_button2</sprite>
       <sprite>sprites\spr_Retry_button</sprite>
       <sprite>sprites\spr_You_Lost</sprite>
       <sprite>sprites\spr_You_Won</sprite>
+      <sprite>sprites\spr_hit_bomb</sprite>
     </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\Background</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\clickField.gml</script>
@@ -117,6 +123,17 @@
     <objects name="Multiplayer_menu">
       <object>objects\obj_Joingame_button</object>
       <object>objects\obj_Hostserver_button</object>
+      <objects name="Hostmenu">
+        <object>objects\obj_host_menu</object>
+        <object>objects\obj_Textbox_vandret2</object>
+        <object>objects\obj_Textbox_vandret2_parent</object>
+        <object>objects\obj_Textbox_lodret2</object>
+        <object>objects\obj_Textbox_lodret2_parent</object>
+        <object>objects\obj_Textbox_bomber2</object>
+        <object>objects\obj_Textbox_bomber2_parent</object>
+        <object>objects\obj_Cancel_button2</object>
+        <object>objects\obj_Start_button2</object>
+      </objects>
     </objects>
     <objects name="Ingame">
       <object>objects\client</object>
@@ -128,7 +145,11 @@
       <object>objects\obj_restart_button</object>
       <object>objects\obj_Retry_button</object>
       <object>objects\obj_Menu_button</object>
+      <object>objects\obj_Menu_button2</object>
       <object>objects\obj_Back_button2</object>
+      <object>objects\obj_Back_button3</object>
+      <object>objects\obj_Hit_bomb</object>
+      <object>objects\obj_w8_4_client</object>
     </objects>
   </objects>
   <rooms name="rooms">
