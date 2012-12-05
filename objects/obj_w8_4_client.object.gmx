@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0.05;
+            <string>global.clear_room = false;
+image_speed = 0.05;
 </string>
           </argument>
         </arguments>
@@ -48,7 +49,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.MartinSucksSocket &gt; 0) {
+            <string>if (global.MartinSucksSocket &gt; 0 || global.clear_room == true) {
     instance_destroy();
 }
 </string>
