@@ -75,9 +75,7 @@ timer = 10;
           <argument>
             <kind>1</kind>
             <string>if (timer = 0) {
-    global.bomb_hit = false;
-    instance_destroy();
-    room_goto(Multiplayer_menu);
+    game_restart();
 }
 </string>
           </argument>

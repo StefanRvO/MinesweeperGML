@@ -25,12 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(Multiplayer_menu);
-    global.multiplayer = false;
-    global.client_selected = false;
-    global.multiplayer = false;
-    global.server_selected = false;
-    global.clear_room = true;
+            <string>game_restart();
 </string>
           </argument>
         </arguments>
